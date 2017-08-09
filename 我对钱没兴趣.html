@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+   
+   *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    } 
+    body{
+       background:#87CEFA;
+        }
+    .cat{
+        background:white;
+        width:600px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: .8em;
+        border-radius: 5px;
+    }
+  .header img {
+     width:40px;
+     border-radius:50%;
+    float:left;
+    margin-right:10px;
+     }
+  .header::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+     .header span {
+            float: left;
+            height: 40px;
+            line-height: 40px;
+        }
+      .header span:not(:first-of-type) {
+            padding-left: .4em;
+        }
+    p,
+        span {
+            font-size: 0.9rem;
+        }
+
+        .time,.footer {
+            color: #cdcdcd;
+           }
+    .main {
+            margin-top: .4em;
+            margin-right: 166px;
+            line-height: 1.8;
+        }
+
+        .main p {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .dog {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 1em;
+        }
+
+        .dog img {
+            width: 160px;
+            border-radius: .4em;
+            vertical-align: top;
+        }
+
+        .footer {
+            line-height: 25px;
+            margin-top: .6em;
+        }
+
+        .footer span {
+            display: inline-block;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: red;
+            border: 1px solid red;
+            border-radius: 5px;
+            padding: 0 .2em;
+            margin-top: .8em;
+            margin-right: .2em;
+        }
+
+        .footer span {
+        margin-right:10px;
+        }
+  </style>
+</head>
+<body>
+  <div class="cat">
+     <div class="dog">
+       <img src="http://sznews.zjol.com.cn/pic/0/10/38/63/10386388_998426.jpg" alt="">
+    </div>
+    <div class="header">
+       <span><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2003988139,3010807873&fm=117&gp=0.jpg" alt="" class="sb">
+       <span class="author">马磊磊</span> 
+       <span class="time">今天 9:43</span>
+      </div>
+      <div class="main">
+        <h3>我对钱没有兴趣<h3>
+        <p>我创业，从阿里巴巴创业，1999年到现在为止，我没有一个月拿过工资，工资当然都发到我们家老婆账号上去了，我从来没碰过钱，我对钱没有兴趣，因为我最快乐的时候是我一个月拿91块钱当老师的时候。</p>
+          </div>
+          <div class="footer">
+            <span href="" class="link"><a href="">谈写作</a></span>
+            <span class="view">100000+</span>
+            <span class="like">6784</span>
+            <span class="praise">85987</span>
+            <span class="money">7492</span>
+        </div>
+            
+          </div>
+     </div>
+</body>
+</html>
+     
+    
