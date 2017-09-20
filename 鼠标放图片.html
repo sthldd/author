@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+	<ul class="container">
+	  <li data-img="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505927040816&di=5a3742c94ec0423d61271e576464e434&imgtype=0&src=http%3A%2F%2Fimg5.duitang.com%2Fuploads%2Fitem%2F201601%2F08%2F20160108181509_vdRxQ.jpeg">鼠标放在图片上</li>
+	  <li data-img="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505927082435&di=7ddde707632b571d3fd5db316b003725&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170314%2F960517659a55461ebf84e818d30309c3_th.jpeg">鼠标放在图片上</li>
+	  <li data-img="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505927163888&di=0fb3a5bffec34dec1a44f3a5bcb8889f&imgtype=0&src=http%3A%2F%2Fimg.mp.sohu.com%2Fupload%2F20170613%2Fdcf6661704da4f46a52fa0843965141a_th.png">鼠标放在图片上</li>
+	</ul>
+<div class="img-preview"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505927207964&di=a092a3e1f8dffe64f2301e9dcf761235&imgtype=0&src=http%3A%2F%2Fbbsfiles.vivo.com.cn%2Fvivobbs%2Fattachment%2Fforum%2F201612%2F07%2F233359rk9adrp0uh4ckaoz.jpg"></div>
+<script>
+  var ccontainer = document.querySelector(".container")
+var liArr = ccontainer.querySelectorAll("li")
+var preview = document.querySelector(".img-preview")
+
+	  for (var i = 0; i < liArr.length; i++) {
+	  	liArr[i].addEventListener("mouseenter",function(){
+	  		var dataImg = this.getAttribute("data-img")
+	  		preview.innerHTML = '<img src="' + dataImg + '">'
+	  	})
+	  };
+  
+</script>
+
+</body>
+</html>

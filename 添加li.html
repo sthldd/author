@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+  <ul id="container">
+    <li>我是</li>
+    <li>前端</li>
+    <li>js</li>
+    <li>最垃圾的</li>
+  </ul>
+  <input  id="ipt-content" placeholder="输入内容">
+  <button id="btn-start">开头添加</button>
+  <button id="btn-end">末尾添加</button>
+  <script>
+    var ccontainer = document.querySelector('#container')
+    var ccontent = document.querySelector('#ipt-content')
+    var sbtn = document.querySelector('#btn-start') 
+    var ebtn = document.querySelector('#btn-end')
+
+    container.addEventListener('click',function(a){
+      console.log(a.target.innerText)
+     });
+   sbtn.addEventListener('click', function(){
+     var addLi = document.createElement('li');
+     if (ccontent.value.length == 0) {
+     alert('不输入内容不能提交')
+   }else{
+    addLi.innerText = ccontent.value;
+   container.insertBefore(addLi,ccontainer.firstChild);
+   }
+   });
+ ebtn.addEventListener('click',function(){
+ var addLi = document.createElement('li')
+ if(ccontent.value.length == 0){
+ alert('不输入别提交')
+ }else{
+   addLi.innerText = ccontent.value
+   container.appendChild(addLi,ccontainer.firstChild)
+ }
+}); 
+  </script>
+</body>
+</html>
