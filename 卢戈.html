@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_453788_s1vsoasxxbt9.css">
+    <title>Document</title>
+    <style>
+html,
+body,figure {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    position: relative;
+}
+
+html,body,figure,ul {margin: 0; padding: 0;}
+
+body {
+	font: 14px/1.5 Arial;
+    overflow: hidden;
+}
+
+ul {
+	list-style: none;
+	display: flex;
+}
+ 
+.bg {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background-image: url(http://cloud.hunger-valley.com/music/public_tuijian_spring.jpg-big);
+    background-size: cover;
+    filter: blur(4px);
+    z-index: -1;
+}
+
+.bg:before {
+	background: rgba(0,0,0,0.4);
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -2;
+}
+
+.layout {
+	margin: 0 auto;
+	width: 600px;
+}
+
+
+@media (min-width: 700px) {
+  .layout {
+    width: 600px;
+  }
+}
+@media (min-width: 900px) {
+  .layout {
+    width: 800px;
+  }
+}
+@media (min-width: 1000px) {
+  .layout {
+    width: 900px;
+  }
+}
+@media (min-width: 1200px) {
+  .layout {
+    width: 1100px;
+  }
+}
+
+main {
+	height: 75vh;
+	padding-top: 12vh; 
+	display: flex;
+	box-sizing: border-box;
+	padding: 12vh 5vh 5vh;
+}
+
+main .aside {
+ 	width: 60vh; 
+}
+
+main .aside figure {
+	height: 50vh;
+}
+
+main .aside img {
+ 	width: 50vh;
+ 	height: 48vh; 
+}
+
+main .aside .actions{
+	width: 50vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+main .aside .actions:hover{
+	cursor: pointer;
+}
+
+main .aside .actions .iconfont {
+	font-size: 5vh;
+	color: white;
+} 
+
+main .detail {
+	flex: 1; 
+	color: white;
+}
+
+main .detail .tag {
+	display: inline-block;
+	background-color: blue;
+	padding: 4px 8px;
+}
+
+main .detail h1 {
+	font-size: 4vh;
+}
+
+main .detail .icons {
+	margin-top: 8vh;
+}
+
+main .detail .icons li{
+	width: 33.33%;
+	font-size: 4vh;
+}
+
+main .detail .icons .iconfont {
+	font-size: 4vh;
+}
+
+main .detail .area-bar {
+	display: flex;
+	align-items: center;
+}
+
+main .detail .area-bar .bar:hover {
+	cursor: pointer;
+}
+
+main .detail .area-bar .bar{
+	margin-top: 8vh;
+	background-color: red;
+	height: 0.8vh;
+	border-radius: 0.2vh;
+	position: relative;
+	flex: 1;
+}
+
+main .detail .area-bar .current-time{
+	margin-top: 8vh;
+	margin-left: 1vh;
+}
+
+main .detail .area-bar .bar .progress{
+	width: 0%;
+	position: absolute;
+	background-color: yellow;
+	height: 0.8vh;
+	border-radius: 0.2vh;
+}
+
+main .detail .author {
+	font-size: 4vh;
+	margin-top: 2vh;
+}
+
+main .detail .lyric {
+	margin-top: 2vh;
+}
+
+footer {
+	height: 25vh;
+	background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px -.25vh .25vh .25vh rgba(255,255,255,0.2);
+}
+
+footer .layout {
+	height: 25vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+footer .layout:hover {
+	cursor: pointer;
+}
+
+footer .layout:hover .iconfont {
+	display: block;
+}
+
+footer .iconfont {
+	font-size: 8vh;
+	color: #CAC6BE;
+	display: none;
+}
+
+footer .layout .box{
+	width: 100%;
+	overflow: hidden; 
+	position: relative;	
+	height: 100%;
+	flex-shrink: 0;
+}
+
+footer .layout .box .container{
+	margin-top: 3vh;
+	position: absolute;
+	display: flex;	
+}
+
+footer .layout .box figure {
+	width: 18vh;
+	display: flex;
+	flex-direction: column; 
+	margin: 1vh 1vh 0 1vh;
+}
+
+footer .layout .box figure:hover {
+	box-shadow: 0 0 10px #ffffff;
+}
+
+footer .layout .box figure img{
+	display: flex;
+	flex-direction: column; 
+	height: 15vh;
+	width: 18vh;
+}
+
+footer .layout .box figure span {
+	text-align: center;
+	color: #CAC6BE;
+} 
+      
+    </style>
+</head>
+<body>
+    <div class="bg"></div>
+    <section id="page-music">
+        <main class="layout">
+            <div class="aside">
+                <figure>
+                    <img src="http://cloud.hunger-valley.com/music/public_tuijian_spring.jpg-big" alt="">
+                </figure>
+                <div class="actions">
+                    <span class="btn-collect iconfont icon-collect"></span>
+                    <span class="btn-operate iconfont icon-pause"></span>
+                    <span class="btn-next iconfont icon-next"></span>
+                </div>
+            </div>
+            <div class="detail">
+                <span class="tag">中国风</span>
+                <h1 class="title">清明雨上</h1>
+                <ul class="icons">
+                    <li>
+                        <span class="iconfont icon-listen"></span>
+                        <span>3333</span>
+                    </li>
+                    <li>
+                        <span class="iconfont icon-collect"></span>
+                        <span>3333</span>
+                    </li>
+                    <li>
+                        <span class="iconfont icon-good"></span>
+                        <span>3333</span>
+                    </li>
+                </ul>
+                <div class="area-bar">
+                    <div class="bar">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="current-time">1:07</div>
+                </div>
+                <div class="artists">Micheal Jackson</div>
+                <div class="lyric">as long as you love me</div>
+            </div>
+        </main>
+        <footer>
+            <div class="layout">
+                <div class="left iconfont icon-left"></div>
+                <div class="box">
+					<div class="container"></div>
+                </div>
+                <div class="right iconfont icon-right"></div>
+            </div>
+        </footer>
+    </section>
+
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="app.js"></script> 
+    <script>
+$(function() {
+    var audio, fm, controller, channel;
+
+    $(function() {
+        addEventsListener();
+        initAudio();
+        initCompeneonts();
+    });
+
+    function addEventsListener() {
+        $('main').on('channels.click', function(e, channel) {
+
+            $('.detail .tag').text(channel.channelName);
+            $('main .aside img').attr('src', channel['coverMiddle']);
+            $('.bg').css('background-image', 'url(' + channel['coverMiddle'] + ')');
+
+            $('#page-music .detail').trigger('fm.loadMusic', channel.channelId);
+        });
+    }
+
+    function initCompeneonts() {
+        fm = new FM();
+        controller = new Controller();
+        channel = new Channel();
+
+        channel.init();
+        controller.init();
+        fm.init();
+    }
+
+    function initAudio() {
+        audio = new Audio();
+        window.audio = audio;
+
+        audio.autoplay = true;
+        audio.onended = function() {
+            $('#page-music .detail').trigger('fm.loadMusic');
+        }
+        audio.onplaying = function(event) {
+            $('#page-music .detail').trigger('fm.onplaying');
+        }
+    }    
+});
+
+/**
+ * 3个类 ： 
+ *     1，Channel,对应底部footer部分,主要功能：生成底部频道列表，左右滑动，响应点击事件选择频道
+ *     2，Controller，对应main区域左部，主要功能：音乐的暂停与播放，播放下一首
+ *     3，FM，对应main区域右部，显示专辑、歌曲信息，实时的歌曲播放进度（时间和进度条），歌词的实时切换与显示 
+ */
+
+
+
+/**
+ * Channel,对应底部footer部分,主要功能：生成底部频道列表，左右滑动，响应点击事件选择频道
+ */
+var Channel = function() {
+    var API_OF_CHANNELS = 'http://jirenguapi.applinzi.com/fm/getChannels.php',
+        FIGURE_FOOTER_TEMPLATE = '<figure>' +
+        '	<img src="[cover_small]" alt="" channel_id="[channel_id]" channel_name="[channel_name]" cover_middle="[cover_middle]">' +
+        '	<span>[name]</span>' +
+        '</figure>';
+
+    this.init = function() {
+        _loadChannels();
+    }
+
+    _loadChannels = function() {
+        $.getJSON(API_OF_CHANNELS).done(_renderFooter);
+    }
+
+    _renderFooter = function(data) {
+
+        var channels = data.channels;
+        var footerHtml = _htmlGenerator(channels);
+
+        $('footer .layout .box .container').append(footerHtml);
+
+        _addEventsListener();
+    }
+
+    _htmlGenerator = function(channels) {
+        var footerHtml = '';
+        var htmlTemp = FIGURE_FOOTER_TEMPLATE;
+
+        $.each(channels, function(index, item) {
+            footerHtml += htmlTemp.replace('[cover_small]', item['cover_small'])
+                .replace('[name]', item['name'])
+                .replace('[channel_id]', item['channel_id'])
+                .replace('[channel_name]', item['name'])
+                .replace('[cover_middle]', item['cover_middle']);
+            htmlTemp = FIGURE_FOOTER_TEMPLATE;
+        });
+
+        return footerHtml;
+    }
+
+    // 通过事件代理在父容器上为左、右箭头、各频道注册点击事件
+    _addEventsListener = function() {
+        $('footer .layout').on('click', function(event) {
+            var isToLeft = event.target.classList.contains('left'),
+                isToRight = event.target.classList.contains('right'),
+                isToChangeChannel = event.target.tagName.toLowerCase() === 'img';
+
+            if (isToLeft || isToRight) {
+                var singleFigureWidth = $('footer .container figure').outerWidth(),
+                    $container = $('footer .container'),
+                    boxWidth = $container.parent().width(),
+
+                    // 图片可视区内能一次能看见的图片数，左右移动时，每次移动 （该数目*图片宽度） 
+                    steps = Math.floor(boxWidth / singleFigureWidth),
+
+                    // container 在其父容器 box 的当前left坐标
+                    currentLeftOfContainer = parseInt($container.css('left'));
+
+                if (isToLeft && -currentLeftOfContainer + boxWidth < $container.width()) {
+                    $container.css({ 'left': '-' + (-currentLeftOfContainer + singleFigureWidth * steps) + 'px' });
+                }
+
+                if (isToRight && currentLeftOfContainer < 0) {
+                    $container.css({ 'left': (currentLeftOfContainer + singleFigureWidth * steps) + 'px' });
+                }
+            }
+
+            if (isToChangeChannel) {
+                var channelId = $(event.target).attr('channel_id'),
+                    channelName = $(event.target).attr('channel_name');
+                coverMiddle = $(event.target).attr('cover_middle');
+                $('main').trigger('channels.click', { channelId: channelId, channelName: channelName, coverMiddle: coverMiddle });
+            }
+        });
+    }
+}
+
+
+/**
+ * Controller，对应main区域左部，主要功能：音乐的暂停与播放，播放下一首
+ */
+var Controller = function() {
+
+    this.init = function(fmObj, networkHelper) {
+        $('main .actions .btn-next').on('click', function() {
+            $('#page-music .detail').trigger('fm.loadMusic');
+        });
+
+        $('main .actions .btn-operate').on('click', function() {
+            audio.paused ? audio.play() : audio.pause();
+            this.classList.toggle('icon-pause');
+            this.classList.toggle('icon-start');
+        });
+    }
+}
+
+/**
+ * FM，对应main区域右部，显示专辑、歌曲信息，实时的歌曲播放进度（时间和进度条），歌词的实时切换与显示
+ */
+var FM = function() {
+    this.currentChannelId = '';
+
+    this.init = function() {
+        var that = this;
+
+        $('#page-music .detail').on('fm.loadMusic', function(e, channelId) {
+            _loadMusic.call(that, channelId);
+        });
+
+        $('#page-music .detail').on('fm.onplaying', function() {
+            _beforeUpdateTimestampAndLyric.call(that);
+        });
+
+       $('#page-music .detail .bar').on('click', function(e) {
+             audio.currentTime =  (e.clientX - this.offsetLeft) / this.offsetWidth * audio.duration;
+        });
+    }
+
+    function _loadMusic(channelId) {
+
+        var that = this;
+
+        channelId = channelId ? this.currentChannelId = channelId : this.currentChannelId;
+
+        $.getJSON('http://jirenguapi.applinzi.com/fm/getSong.php', { channel: channelId }).done(function(songs) {
+            _setMusic.call(that, songs);
+        });
+    }
+
+    function _setMusic(song) {
+        var songInfo = song.song[0],
+            that = this;
+
+        audio.src = songInfo.url;
+
+        $('.detail .title').text(songInfo.title);
+        $('.detail .artists').text(songInfo.artist);
+        $('main .actions .btn-operate').removeClass('icon-start').addClass('icon-pause');
+
+        $.getJSON('http://jirenguapi.applinzi.com/fm/getLyric.php', { sid: songInfo.sid }).done(function(lyric) {
+            _parseLyric.call(that, lyric);
+        });
+    }
+
+    function _parseLyric(lyric) {
+        var that = this;
+        this.lyrics = {};
+
+        var lyricsTemp = lyric.lyric.split('\n'),
+            reg = /\[(\d+:\d+)\.\d+\]/g,
+            matches;
+
+        lyricsTemp.forEach(function(item) {
+            matches = item.match(reg);
+
+            for (var i = 0; matches && i < matches.length; i++) {
+                that.lyrics[RegExp['$' + ++i]] = item.replace(/\[.+\]/g, '');
+            }
+        });
+    }
+
+    function _beforeUpdateTimestampAndLyric() {
+        var that = this;
+
+        if (audio && (!audio.paused || !audio.ended)) {
+            setTimeout(function() {
+                _updateTimestampAndLyric.call(that);
+            }, 300);
+        }
+    }
+
+    function _updateTimestampAndLyric() {
+
+        $('.area-bar .progress').css('width', (audio.currentTime / audio.duration * 100) + '%');
+        var second = Math.floor(Math.floor(audio.currentTime) / 60),
+            decimalPart = Math.floor(Math.floor(audio.currentTime) % 60),
+            timeStamp = _formatTimePart(second) + ':' + _formatTimePart(decimalPart);
+        $('.area-bar .current-time').text(timeStamp);
+
+        if (this.lyrics && this.lyrics[timeStamp]) {
+            $('.detail .lyric').text(this.lyrics[timeStamp]);
+        }
+
+        _beforeUpdateTimestampAndLyric.call(this);
+    }
+
+    function _formatTimePart(time) {
+        return time < 10 ? '0' + time : time;
+    }
+} 
+    </script>    
+</body>
+</html>
