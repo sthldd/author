@@ -1,1 +1,165 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      a{
+        text-decoration:none;
+      }
+      body{
+        background-color: black;
+      }
+      li{
+        list-style: none;
+      }
+      .clearfix::after{
+        content: '';
+        display: block;
+        clear: both;
+      }
+      .NavBar .logo{
+        font-weight: bold;
+        font-size: 24px;
+      }
+      .NavBar .logo .RS{
+        margin-right: 4px;
+        color: #E6686A;
+      }
+      .NavBar .logo .card{
+        color: #9A9DA2;
+      }
+      .NavBar{
+        margin:30px 10px 30px 25px;
+      }
+      .NavBar>nav>ul>li{
+        margin-left: 17px;
+        margin-right: 17px;
+        float: left;
+      }
+      .NavBar>nav>ul>li>a{
+        color: #b7b7b7;
+        border:1px solid transparent;
+        font-size: 12px;
+      }
+      .NavBar nav{
+        float: right;
+      }
+      .NavBar>nav>ul>li>a:hover{
+        border-bottom: 3px solid #E06567;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    main{
+        color: white;
+    }
+    section{
+        color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="NavBar clearfix">
+    <a href="#" class="logo" alt="logo">
+        <span class="RS">RS</span><span class="card">card</span>
+    </a>    
+    <nav>
+      <ul class="clearfix">
+        <li>
+          <a href="">关于</a>
+        </li>
+        <li>
+          <a href="">技能</a>
+        </li>
+        <li>
+          <a href="">作品</a>
+        </li>        
+        <li>
+          <a href="">博客</a>
+        </li>
+        <li>
+          <a href="">日历</a>
+        </li>
+        <li>
+          <a href="">联系方式</a>
+        </li>
+        <li>
+          <a href="">其他</a>
+        </li>          
+      </ul>
+    </nav>
+  </div>
+  <div class="bk"></div>
+  <main>
+    <div class="card">
+      <div class="pictureAndText">   
+        <div class="picture">
+          <img src="#" alt="">
+        </div>
+        <div class="text">
+          <div class="profile">
+            <span class="welcome">Hello</span>
+            <h1>马磊磊</h1>
+            <p>前端开发工程师</p>
+            <hr>
+            <dl>
+              <dt>年龄</dt>
+              <dt>20</dt>
+              <dt>地址</dt>
+              <dt>合肥市</dt>
+              <dt>邮箱</dt>
+              <dt>1209624528@qq.com</dt>
+              <dt>手机</dt>
+              <dt>13739258945</dt>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <footer class="media">
+        <a href=""><span class="iconfont "></span></a>
+        <a href=""><span class="iconfont "></span></a>
+        <a href=""><span class="iconfont "></span></a>
+        <a href=""><span class="iconfont "></span></a>  
+      </footer>
+    </div>
+    <a class="button" href="#">下载 PDF 简历</a>
+    <p>
+      马磊磊， 初级前端工程师，正在饥人谷上课。
+      <br> 技能：前端开发，Node.js 开发
+    </p>
+  </main>
+  <section>
+    <h2>技能</h2>
+    <ol>
+      <li>HTML 5 &amp; CSS 3</li>
+      <li>JavaScript</li>
+      <li>jQuery</li>
+      <li>Vue</li>
+      <li>React</li>
+      <li>HTTP</li>
+    </ol>
+  </section>
+  <section>
+    <h2>作品集</h2>
+    <nav>
+      <ol>
+        <li>所有</li>
+        <li>框架</li>
+        <li>原生JS&amp;CSS</li>
+      </ol>
+    </nav>
+      <div class="jobs">
+        <div class="big"></div>
+        <div class="small"></div>
+        <div class="small"></div>
+      </div>
+  </section>
+</body>
+</html>
