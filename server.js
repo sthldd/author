@@ -23,7 +23,7 @@ var server = http.createServer(function(request, response){
 
   
   console.log('HTTP 路径是\n' + path)
-  if(path == '/index.html'){
+  if(path == '/'){
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
     response.write('<!DOCTYPE>\n<html> ' + 
       '<head>< <link rel="stylesheet" href="/style.css"> ' +

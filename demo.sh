@@ -7,12 +7,7 @@ else
   mkdir css js
   touch index.html css/style.css js/main.js
   echo ' h1 {color:red;}'  >> css/style.css
-  echo ' <!DOCTYPE>
-  <title>Hello</title>
-  <h1>Hi</h1>
-  '  >> index.html
-  echo ' var string = "Hello World "
-  alert(string)
-  '  >> js/main.js
-  exit
+  echo ' <!DOCTYPE>\n<title>Hello</title>\n<h1>Hi</h1>'  >> index.html
+  echo ' var string = "Hello World " alert("string") '  >> js/main.js
+  exit 'ok'
   fi
