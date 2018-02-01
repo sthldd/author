@@ -18,23 +18,49 @@ var server = http.createServer(function(request, response){
   var method = request.method
 
   /******** 从这里开始看，上面不要看 ************/
+  
 
   console.log('方方说：含查询字符串的路径\n' + pathWithQuery)
 
   if(path === '/'){
+    var string = fs.readFileSync('./index.html','utf8')
+    var amount = fs.readFileSync('./amount','utf8')
+    string = string.replace('&&&amount&&&',amount)
     response.statusCode = 200
-    response.setHeader('Content-Type', 'text/html;charset=utf-8')
-    response.write('哈哈哈')
+    response.setHeader('Content-Type','text/html;charset=utf-8')
+    response.write(string)
     response.end()
+  } else if(path === '/alipay'){
+    var amount = fs.readFileSync('./amount','utf8')
+    var newAmount = amount - 1
+      fs.writeFileSync('./amount',newAmount)
+      response.setHeader('Content-Type','application/javascript')
+      response.statusCode = 200
+      response.write(`amount.innerText = amount.innerText - 1`)
+      response.end() 
   }else{
     response.statusCode = 404
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
-    response.write('呜呜呜')
+    response.write('你错了多试试吧')
     response.end()
   }
+
+
+
+
+
+
+
+
+
+
+
+
 
   /******** 代码结束，下面不要看 ************/
 })
 
 server.listen(port)
 console.log('监听 ' + port + ' 成功\n请用在空中转体720度然后用电饭煲打开 http://localhost:' + port)
+
+
