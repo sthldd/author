@@ -3,10 +3,11 @@ var fs = require('fs')
 var url = require('url')
 var port = process.argv[2]
 
-if(!port){
-  console.log('请指定端口号好不啦？\nnode server.js 8888 这样不会吗？')
-  process.exit(1)
-}
+// if(!port){
+//   console.log('请指定端口号好不啦？\nnode server.js 8888 这样不会吗？')
+//   process.exit(1)
+// }
+var port = process.env.PORT || 7777
 
 var server = http.createServer(function(request, response){
   var parsedUrl = url.parse(request.url, true)
@@ -30,15 +31,17 @@ var server = http.createServer(function(request, response){
     response.setHeader('Content-Type','text/html;charset=utf-8')
     response.write(string)
     response.end()
-  } else if(path === '/alipay'){
-    var amount = fs.readFileSync('./amount','utf8')
-    var newAmount = amount - 1
-      fs.writeFileSync('./amount',newAmount)
-      response.setHeader('Content-Type','application/javascript')
-      response.statusCode = 200
-      response.write(`amount.innerText = amount.innerText - 1`)
-      response.end() 
-  }else{
+  } else if (path === '/alipay'){
+    let amount = fs.readFileSync('./amount', 'utf8')
+    amount -= 1
+    fs.writeFileSync('./amount', amount)
+    let callbackName = query.callback
+    response.setHeader('Content-Type', 'application/javascript')
+    response.write(`
+        ${callbackName}.call(undefined, 'success')
+    `)
+    response.end()
+   }else{
     response.statusCode = 404
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
     response.write('你错了多试试吧')
