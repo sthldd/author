@@ -1,0 +1,29 @@
+*{margin:0;padding: 0;box-sizing: border-box;}
+a{text-decoration: none;}
+li{list-style: none;}
+body{font-size: 3.7vw;}
+.topBar{padding: 4.5vw 2.5vw;background:#D43C33;display: flex;align-items: center;justify-content: space-between;}
+.topBar .logo{width:38vw;}
+.topBar .downloadApp{color:white;border:2px solid #E3807B;padding:1vw 2vw;border-radius: 4vw;line-height: 5.5vw;}
+.siteNav{
+    
+}
+.siteNav>ol{
+    display: flex;
+    text-align: center;
+    line-height: 12vw;
+    border-bottom: 1px solid #F1F1F1;
+    font-size: 1.1em;
+}
+.siteNav>ol>li{
+    flex:1;
+}
+.siteNav>ol>li.active{
+    color:#d33a31;
+}
+
+
+
+
+
+
