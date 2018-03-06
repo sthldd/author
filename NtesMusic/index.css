@@ -65,6 +65,10 @@ section>h2:first-child{
     padding:1vw 0;
     position: relative;
 }
+.lastesMusic #load{
+    text-align: center;
+}
+
 .lastesMusic > ol >li h3{
     font-size: 4.53vw;
 }
@@ -85,6 +89,7 @@ section>h2:first-child{
     color:#AAAAAA;
     font-weight: bold;
 }
+.lastesMusic > ol >li a{color:inherit;}
 .lastesMusic > ol >li svg.sq{
     width:4vw;
     height:4vw;

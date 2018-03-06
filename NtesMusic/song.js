@@ -1,4 +1,27 @@
 $(function(){
+  let id = parseInt(location.search.match(/\bid=([^&]*)/)[1],10)
+  $.get('./songs.json').then(function(response){
+    let songs = response
+    console.log(songs)
+    let song = songs.filter((s)=>{return s.id == id})[0]
+    console.log(song)
+    let {url} = song 
+    let audio = document.createElement('audio')
+    audio.src = url
+    audio.oncanplay = function(){
+      audio.play()
+      $('.disc-container').addClass('playing')
+    }
+    $('.icon-pause').on('click',function(){
+      audio.pause()
+      $('.disc-container').removeClass('playing')
+    })
+    $('.icon-play').on('click',function(){
+      audio.play()
+      $('.disc-container').addClass('playing')
+    }) 
+
+  })
   $.get('/lyric.json').then(function(object){
      let {lyric} = object
      let array = lyric.split('\n')
@@ -19,19 +42,6 @@ $(function(){
     })
   })
 
-  let audio = document.createElement('audio')
-  audio.src = 'http://dl.stream.qqmusic.qq.com/C400001XdWPc3zSK8E.m4a?vkey=A6D198708073FC36887509ABBE29EF0781F1A770540EA871A22025EA47FEC0A1A7225FB6C25BB5D667A51E921E13B8C0CE041CEF4CB0219D&guid=1559421735&uin=1209624528&fromtag=66'
-  audio.oncanplay = function(){
-    audio.play()
-    $('.disc-container').addClass('playing')
-  }
-  $('.icon-pause').on('click',function(){
-    audio.pause()
-    $('.disc-container').removeClass('playing')
-  })
-  $('.icon-play').on('click',function(){
-    audio.play()
-    $('.disc-container').addClass('playing')
-  }) 
+
   
 })
