@@ -17,20 +17,3 @@ $(function(){
       },function(){
   })
 })
-
-/*  <li>
-        <a class="begain-music" href="./song.html">
-          <h3>歌曲名</h3>  
-          <p>
-            <svg class="sq">
-              <use xlink:href="#icon-sq"></use>
-            </svg>
-            演唱者-专辑</p>  
-          <i class="iconfont icon-play-music"></i>
-        </a>
-      </li>  
-<svg class="sq">
-              <use xlink:href="#icon-sq"></use>
-          </svg>
-
-*/

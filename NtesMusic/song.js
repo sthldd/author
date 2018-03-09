@@ -2,11 +2,8 @@ $(function(){
   let id = parseInt(location.search.match(/\bid=([^&]*)/)[1],10)
   $.get('./songs.json').then(function(response){
     let songs = response
-    console.log(songs)
     let song = songs.filter((s)=>{return s.id == id})[0]
-    console.log(song)
     let {url,name,lyric} = song 
-    console.log(url,name,lyric)
     initPlayer.call(undefined,url)
     initText(name,lyric)
   })
@@ -29,6 +26,32 @@ $(function(){
       audio.play()
       $('.disc-container').addClass('playing')
     }) 
+
+    setInterval(()=>{
+       let seconds = audio.currentTime
+       let munites = ~~(seconds / 60)
+       let left = seconds - munites * 60
+       let time = `${pad(munites)}:${pad(left)}`
+       let $lines = $('.lines > p')
+       let $whichLine
+       for(let i = 0;i<$lines.length;i++){
+         if( $lines.eq(i+1).length !== 0 && $lines.eq(i).attr('data-time')< time && $lines.eq(i+1).attr('data-time')>time){
+           $whichLine = $lines.eq(i)
+           break
+         }
+       }
+       if($whichLine){
+         $whichLine.addClass('active').prev().removeClass('active')
+         let top = $whichLine.offset().top
+         let linesTop = $('.lines').offset().top
+         let delta = top - linesTop - $('.lyric').height() / 3
+         console.log(top,linesTop,delta)
+         $('.lines').css('transform',`translateY(-${delta}px)`)
+       }
+    },300)
+  }
+  function pad(number){
+    return number >= 10 ? number + '':'0' + number
   }
   function parseLyric(lyric){
     let array = lyric.split('\n')
@@ -40,7 +63,6 @@ $(function(){
        }
         
     })
-    console.log(array)
     let $lyric = $('.lyric')
     array.map(function(object){
       let $p = $('<p/>')
