@@ -241,9 +241,9 @@ var ch = str.getMostOffen()
 - innerHeight + scrooltop >= offsetTop
 ## 函数防抖节流
 ```
-function debounce(func, wait) {
+function debounce(func, wait) {  //一段时间内点击多次只执行一次
     var timeout;
-    return function () {
+    return function () {  //点击的时候执行这个,不管前面点击多少回,都请空掉,然后wait秒钟后执行
         var context = this;
         var args = arguments;
         clearTimeout(timeout)
@@ -254,7 +254,7 @@ function debounce(func, wait) {
 }
 ```
 ```
-function debounce(func, wait, immediate) {
+function debounce(func, wait, immediate) { //开始执行一次,一段时间内点击不执行,停止点击wait秒后,立即执行
   var timeout;
   return function () {
     var context = this;
@@ -277,25 +277,24 @@ function debounce(func, wait, immediate) {
 }
 ```
 ```
-function throttle(func, wait) {
-  var context, args;
+function throttle(func, wait) { //你持续触发事件，每隔一段时间，只执行一次事件。
+  var context, args;  //1. 事件会立刻执行 2. 事件停止触发后没有办法再执行事件，
   var previous = 0;
   return function() {
     var now = +new Date();
     context = this;
     args = arguments;
-    if (now - previous > wait) {
+    if (now - previous > wait) {  //当前的时间 - 上一次的时间 > wait的时间，必须大于wait时间才能触发事件
         func.apply(context, args);
-        previous = now;
+        previous = now; //上一次的时间
     }
   }
 }
 ```
 ```
-function throttle(func, wait) {
+function throttle(func, wait) {  //定时器
   var timeout;
-  var previous = 0;
-  return function() {
+  return function() { //1. 事件会在 n 秒后第一次执行 2. 事件停止触发后依然会再执行一次事件
     context = this;
     args = arguments;
     if (!timeout) {
