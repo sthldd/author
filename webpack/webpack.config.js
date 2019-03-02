@@ -6,10 +6,11 @@ const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
 const ScssExtract = new ExtractTextWebpackPlugin('css/scss.css')
 const CssExtract =  new ExtractTextWebpackPlugin('css/css.css')
 module.exports = {
-  entry: './src/index.js', //入口
+  entry: './src/a.js', //入口
   output: {
     filename: '[name].[hash:8].js',
-    path:path.resolve('./build')
+    path:path.resolve('./build'),
+    chunkFilename:'[name].js'
   }, //出口
   devServer: {
     contentBase:'./build',

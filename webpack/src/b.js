@@ -1,1 +1,3 @@
-console.log('我是b')
+export default ()=>{
+    console.log("this is b");
+}
