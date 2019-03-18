@@ -3,14 +3,11 @@ let HtmlWebpackPlugin = require('html-webpack-plugin')
 let CleanWebpackPlugin = require('clean-webpack-plugin')
 let webpack = require('webpack')
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
-const ScssExtract = new ExtractTextWebpackPlugin('css/scss.css')
-const CssExtract =  new ExtractTextWebpackPlugin('css/css.css')
 module.exports = {
-  entry: './src/a.js', //入口
+  entry: './src/index.js', //入口
   output: {
     filename: '[name].[hash:8].js',
-    path:path.resolve('./build'),
-    chunkFilename:'[name].js'
+    path:path.resolve('./build')
   }, //出口
   devServer: {
     contentBase:'./build',
@@ -21,21 +18,36 @@ module.exports = {
   }, //开发服务器
   module: { //模块配置
     rules: [
-      {
-        test:/\.css$/,use:CssExtract.extract([
-          {loader:'css-loader'},
-        ])
-      },
-      {
-        test:/\.scss$/,use:ScssExtract.extract([
-          {loader:'css-loader'},
-          {loader:'sass-loader'},
-        ])
-      },
+       {
+         test: /\.css$/,
+         use: ExtractTextWebpackPlugin.extract([{
+           loader: 'css-loader'
+         }, ])
+       }, {
+         test: /\.scss$/,
+         use: ExtractTextWebpackPlugin.extract([{
+             loader: 'css-loader'
+           },
+           {
+             loader: 'sass-loader'
+           },
+         ])
+       },
+       {
+        test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 10000
+          }
+        }]
+       },
     ]
   },
   plugins: [
-    ScssExtract,CssExtract,
+    new ExtractTextWebpackPlugin({
+      filename: 'css/index.css'
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(['./build']),
     new HtmlWebpackPlugin({ //打包js到html里用的插件

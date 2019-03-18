@@ -9,14 +9,18 @@
 ###### 区别
 - map方法返回一个新的数组，数组中的元素为原始数组调用函数处理后的值。
 - forEach返回的都是undefined。
+## target和currentTarget 属性的区别。
+- event.target返回触发事件的元素
+- event.currentTarget返回绑定事件的元素
 ## 转数组
 - ```[].slice.call(arguments)```
 - ```Array.of()```
 - ```Array.from()```
-- ```split('')```
+- ```字符串.split('')```
 ## 转字符串
-- ```join('')```
+- ```数组.join('')```
 - ```toString()```
+- ```JSON.stringify```
 ## 判断数组
 - ```[] instance Array```
 - ```arr.constructor === Array```
@@ -178,6 +182,7 @@ var json2 = copy(json1);
 __缺点__：
 造成内存消耗过大，如果处理不当，会造成内存泄漏
 ## 对象遍历方法  for in 遍历的是索引 for of遍历的是值
+- 所有部署了载了Iterator接口的对象(可遍历对象)都可以通过for...of去遍历，而for..in仅仅可以遍历对象。
 ## typeof和instanceof
 typeof主要用于检测 __基本数据类型__：数值、字符串、布尔值、undefined， 因为typeof用于检测引用类型值时，对于任何Object对象实例（包括null），typeof都返回"object"值，没办法区分是那种对象，对实际编码用处不大。
 ## get和post
@@ -308,7 +313,7 @@ function throttle(func, wait) {  //定时器
 ```
 ## 继承
 - 原型链继承
-    - 缺点 包含引用类型值的函数，所有的实例都指向同一个引用地址，修改一个，其他都会改变。不能像超类型的构造函数传递参数
+    - 缺点 .引用类型的属性被所有实例共享，所有的实例都指向同一个引用地址，修改一个，其他都会改变。不能像超类型的构造函数传递参数,在创建 Child 的实例时，不能向Parent传参
 - 构造函数继承
     - 缺点 方法都在构造函数中定义，因此函数复用就无从谈起了，而且超类型中的原型的属性和方法，对子类型也是不可见的，结果所有的类型只能使用构造函数模式。
 - 组合继承
@@ -336,6 +341,8 @@ console.log(child1);
 ## 创建对象的方法
 ## 跨域
 ## 重绘和回流
-
+- __回流__： 页面布局和几何属性发生改变  添加或者删除可见的DOM元素；元素位置改变；浏览器窗口尺寸改变
+- __重绘__： color background-color visible:hidden
 回流必定触发重绘，而重绘不一定触发回流
+
 sort排序是根据个位数来的 垃圾

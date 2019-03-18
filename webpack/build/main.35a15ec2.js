@@ -92,7 +92,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "aee9b5fddd4898b493f0";
+/******/ 	var hotCurrentHash = "35a15ec205f49005fc3d";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -743,7 +743,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"b":"b"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"b":"b"}[chunkId]||chunkId) + "." + hotCurrentHash.substr(0, 8) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -899,7 +899,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire("./src/a.js")(__webpack_require__.s = "./src/a.js");
+/******/ 	return hotCreateRequire("./src/index.js")(__webpack_require__.s = "./src/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -912,6 +912,40 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("console.log(\"this is a.js\")\r\nconst btn = document.querySelector(\"#btn\");\r\nbtn.onclick = ()=>{\r\n    __webpack_require__.e(/*! import() | b */ \"b\").then(__webpack_require__.bind(null, /*! ./b */ \"./src/b.js\")).then(function(module){\r\n        const b = module.default;\r\n        b();\r\n    })\r\n}\r\n\n\n//# sourceURL=webpack:///./src/a.js?");
+
+/***/ }),
+
+/***/ "./src/a.scss":
+/*!********************!*\
+  !*** ./src/a.scss ***!
+  \********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./src/a.scss?");
+
+/***/ }),
+
+/***/ "./src/index.css":
+/*!***********************!*\
+  !*** ./src/index.css ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./src/index.css?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _a_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./a.scss */ \"./src/a.scss\");\n/* harmony import */ var _a_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_a_scss__WEBPACK_IMPORTED_MODULE_1__);\nlet str = __webpack_require__(/*! ./a.js */ \"./src/a.js\")\r\ndocument.getElementById('app').innerText = str\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
